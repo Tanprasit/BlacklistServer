@@ -43,6 +43,10 @@ public class BlacklistServer extends SipServlet {
 	    if (this.blacklist.contains(contactAddress)) {
 	         request.createResponse(403).send();;
 	    } else {
+	        
+	        // Update checkpoint.
+	        request.setHeader(Constants.CHECKPOINT, "forwardingServer");
+	        
 	        // If contact address wasn't in the blacklist proxy it.
 	        Proxy proxy = request.getProxy();
 	        proxy.proxyTo(request.getRequestURI());
@@ -52,7 +56,7 @@ public class BlacklistServer extends SipServlet {
     private Set<String> createDefaultBlacklist() {
         Set<String> blacklist = new HashSet<String>();
         blacklist.add("sip:charn@alacrity.com");
-        return blacklist;   
+        return blacklist;
     }
 
     @SuppressWarnings("unchecked")
