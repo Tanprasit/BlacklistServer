@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sip-app>
+ 
+	<app-name>BlacklistServer</app-name>
+	<display-name>BlacklistServer</display-name>
+	<description>BlacklistServer</description>
+	
+	<main-servlet>
+		BlacklistServer
+	</main-servlet>
+
+	<servlet>
+		<servlet-name>BlacklistServer</servlet-name>
+		<display-name>BlacklistServer</display-name>
+		<description>BlacklistServer</description>
+		<servlet-class>
+			org.example.servlet.sip.BlacklistServer
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+</sip-app>
